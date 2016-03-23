@@ -1,0 +1,106 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PHARE FM Player - Écouter votre radio" />
+  <meta name="keywords" content="player, radio, france, chrétien, musique, louange, icecast, live, pharefm, la radio autrement" />
+  <meta name="author" content="UCB France" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.20.1/mediaelement-and-player.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+  <title>PHARE FM - Player</title>
+</head>
+<body>
+  <div class="container">
+    <div class="menu-wrap">
+      <nav class="menu">
+        <div class="icon-list">
+          <ul>
+            <li><a href="#"><span>PHARE FM</span></a></li>
+            <li><a href="#"><span>PHARE FM Worship</span></a></li>
+            <li><a href="#"><span>PHARE FM Louange</span></a></li>
+            <li><a href="#"><span>PHARE FM Hits</span></a></li>
+            <li><a href="#"><span>Soutenir PHARE FM</span></a></li>
+          </ul>
+        </div>
+      </nav>
+      <button class="close-button" id="close-button">Fermer le Menu</button>
+    </div>
+    <button class="menu-button" id="open-button">Ouvrir le Menu</button>
+    <div class="content-wrap">
+
+      <main>
+        <!--start content-->
+        <div id="radios">
+          <div id="dd" class="wrapper-dropdown" tabindex="1">
+            	<span>Région</span>
+            <ul class="dropdown">
+              <li><a href="#"><i></i>National</a></li>
+              <li><a href="#"><i></i>Aux Portes du Dauphiné</a></li>
+              <li><a href="#"><i></i>Grenoble</a></li>
+              <li><a href="#"><i></i>Haguenau</a></li>
+              <li><a href="#"><i></i>Haute-Normandie</a></li>
+              <li><a href="#"><i></i>Mons (BE)</a></li>
+              <li><a href="#"><i></i>Montauban</a></li>
+              <li><a href="#"><i></i>Mulhouse</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="playerContainer">
+          <div id="audioDiv">
+            <div id="mep_0" class="mejs-container mejs-audio" style="width: 400px; height: 30px;">
+              <div class="mejs-inner">
+                <div class="mejs-mediaelement"><audio id="player" src="http://str0.creacast.com:80/pharefm" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio></div>
+                <div class="mejs-layers">
+                  <div class="mejs-poster mejs-layer" style="display: none; width: 400px; height: 30px;"></div>
+                </div>
+                <div class="mejs-controls">
+                  <div class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play/Pause"></button></div>
+                  <div class="mejs-time mejs-currenttime-container"><span class="mejs-currenttime">00:24:37</span></div>
+                  <div class="mejs-time-rail" style="width: 0px;"><span class="mejs-time-total" style="width: 0px;"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span class="mejs-time-current" style="width: 0px;"></span>
+                    <span class="mejs-time-handle" style="left: -2.5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span>
+                    </span>
+                  </div>
+                  <div class="mejs-time mejs-duration-container"><span class="mejs-duration">NaN:NaN</span></div>
+                  <div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_0" title="Mute Toggle"></button></div>
+                  <div class="mejs-horizontal-volume-slider">
+                    <div class="mejs-horizontal-volume-total"></div>
+                    <div class="mejs-horizontal-volume-current"></div>
+                    <div class="mejs-horizontal-volume-handle"></div>
+                  </div>
+                </div>
+                <div class="mejs-clear"></div>
+              </div>
+            </div>
+
+            <div id="block_musique" class="radio_pharefm">
+              <a href="#playstop" id="playStop" class="playing">Play / Stop</a>
+              <div id="header_nowplaying">
+                <div id="nowplaying_play"><a href="http://pharefm.com/player/" target="blank">Play</a></div>
+                <div id="nowplaying_emission">
+                  <a href="http://pharefm.com/emission/le-6-10-positif-morning/"><img src="http://pharefm.com/wp-content/uploads/2013/02/Le6-10-Positifmorning-2014.jpg" alt="Le 6-10 : Positif Morning"></a>
+                </div>
+                <div id="nowplaying_cover"><img id="nowplaying_albumart" alt="Hello Fear" onerror="erreur_image_en_cours();" src="http://ecx.images-amazon.com/images/I/51AkHCh5skL._SL500_AA280_.jpg"></div>
+                <div id="nowplaying_titreencours"><span><a id="nowplaying_artist" href="http://pharefm.com/artiste/kirk-franklin">KIRK FRANKLIN</a></span><span id="nowplaying_album">Hello Fear</span><span id="nowplaying_titre">I Smile</span></div>
+              </div>
+              <hr class="reset">
+            </div>
+            <div id="block_pub">
+              <!-- Soit il n'y a pas de bannières, ils sont desactivées ou pas qualifiées pour cet endroit! -->
+            </div>
+            <hr class="reset">
+          </div>
+        </div>
+        <!--end content-->
+      </main>
+
+    </div>
+    <!-- /content-wrap -->
+  </div>
+  <!-- /container -->
+</body>
+
+</html>
