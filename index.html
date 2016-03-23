@@ -1,11 +1,14 @@
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="PHARE FM Player - Écouter votre radio" />
   <meta name="keywords" content="player, radio, france, chrétien, musique, louange, icecast, live, pharefm, la radio autrement" />
   <meta name="author" content="UCB France" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.20.1/mediaelementplayer.min.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.20.1/mediaelement-and-player.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
   <script src="js/main.js"></script>
@@ -17,10 +20,10 @@
       <nav class="menu">
         <div class="icon-list">
           <ul>
-            <li><a href="#"><span>PHARE FM</span></a></li>
-            <li><a href="#"><span>PHARE FM Worship</span></a></li>
-            <li><a href="#"><span>PHARE FM Louange</span></a></li>
-            <li><a href="#"><span>PHARE FM Hits</span></a></li>
+            <li><a id="pharefm" href="#"><span>PHARE FM</span></a></li>
+            <li><a id="pharefm-worship" href="#"><span>PHARE FM Worship</span></a></li>
+            <li><a id="pharefm-louange" href="#"><span>PHARE FM Louange</span></a></li>
+            <li><a id="pharefm-hits" href="#"><span>PHARE FM Hits</span></a></li>
             <li><a href="#"><span>Soutenir PHARE FM</span></a></li>
           </ul>
         </div>
@@ -50,39 +53,15 @@
 
         <div id="playerContainer">
           <div id="audioDiv">
-            <div id="mep_0" class="mejs-container mejs-audio" style="width: 400px; height: 30px;">
-              <div class="mejs-inner">
-                <div class="mejs-mediaelement"><audio id="player" src="http://str0.creacast.com:80/pharefm" type="audio/mp3">
-                            Your browser does not support the audio element.
-                        </audio></div>
-                <div class="mejs-layers">
-                  <div class="mejs-poster mejs-layer" style="display: none; width: 400px; height: 30px;"></div>
-                </div>
-                <div class="mejs-controls">
-                  <div class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play/Pause"></button></div>
-                  <div class="mejs-time mejs-currenttime-container"><span class="mejs-currenttime">00:24:37</span></div>
-                  <div class="mejs-time-rail" style="width: 0px;"><span class="mejs-time-total" style="width: 0px;"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span class="mejs-time-current" style="width: 0px;"></span>
-                    <span class="mejs-time-handle" style="left: -2.5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span>
-                    </span>
-                  </div>
-                  <div class="mejs-time mejs-duration-container"><span class="mejs-duration">NaN:NaN</span></div>
-                  <div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_0" title="Mute Toggle"></button></div>
-                  <div class="mejs-horizontal-volume-slider">
-                    <div class="mejs-horizontal-volume-total"></div>
-                    <div class="mejs-horizontal-volume-current"></div>
-                    <div class="mejs-horizontal-volume-handle"></div>
-                  </div>
-                </div>
-                <div class="mejs-clear"></div>
-              </div>
-            </div>
+            <audio id="player" src=" " type="audio/mp3" controls="hidden">
+                Your browser does not support the audio element.
+            </audio>
 
             <div id="block_musique" class="radio_pharefm">
               <a href="#playstop" id="playStop" class="playing">Play / Stop</a>
               <div id="header_nowplaying">
-                <div id="nowplaying_play"><a href="http://pharefm.com/player/" target="blank">Play</a></div>
                 <div id="nowplaying_emission">
-                  <a href="http://pharefm.com/emission/le-6-10-positif-morning/"><img src="http://pharefm.com/wp-content/uploads/2013/02/Le6-10-Positifmorning-2014.jpg" alt="Le 6-10 : Positif Morning"></a>
+                  <a href="http://pharefm.com/emission/le-6-10-positif-morning/" target="_blank"><img src="http://pharefm.com/wp-content/uploads/2013/02/Le6-10-Positifmorning-2014.jpg" alt="Le 6-10 : Positif Morning"></a>
                 </div>
                 <div id="nowplaying_cover"><img id="nowplaying_albumart" alt="Hello Fear" onerror="erreur_image_en_cours();" src="http://ecx.images-amazon.com/images/I/51AkHCh5skL._SL500_AA280_.jpg"></div>
                 <div id="nowplaying_titreencours"><span><a id="nowplaying_artist" href="http://pharefm.com/artiste/kirk-franklin">KIRK FRANKLIN</a></span><span id="nowplaying_album">Hello Fear</span><span id="nowplaying_titre">I Smile</span></div>
@@ -90,7 +69,7 @@
               <hr class="reset">
             </div>
             <div id="block_pub">
-              <!-- Soit il n'y a pas de bannières, ils sont desactivées ou pas qualifiées pour cet endroit! -->
+              <!--Publicité 300x250px -->
             </div>
             <hr class="reset">
           </div>
@@ -102,6 +81,161 @@
     <!-- /content-wrap -->
   </div>
   <!-- /container -->
+
+  <script>
+
+      // Déclaration du player
+      var player = new MediaElementPlayer('#player'); // Optionnelle, utile pour le CSS
+
+      // Déclaration des sources
+      var pharefm = 'http://str0.creacast.com:80/pharefm';
+      var pharefmHits = 'http://str0.creacast.com:80/pharefmhits';
+      var pharefmWorship = 'http://str30.creacast.com/pharefm_worship';
+      var pharefmLouange = 'http://str0.creacast.com/pharefm_louange';
+      var pharefmEvent = 'http://str30.creacast.com:80/pharefmevent';
+
+      // Flux régions
+      var pharefmBE = 'http://str0.creacast.com/pharefm_mons';
+      var pharefmPDD = 'http://str0.creacast.com/pharefm_dauphine';
+      var pharefmGRE = 'http://str0.creacast.com/pharefm_grenoble';
+      var pharefmHAG = 'http://str0.creacast.com/pharefm_haguenau';
+      var pharefmHN = 'http://str0.creacast.com/pharefm_hautenormandie';
+      var pharefmMTB = 'http://str0.creacast.com/pharefm_montauban';
+      var pharefmMLH = 'http://str0.creacast.com/pharefm_mulhouse';
+
+
+      // Je créée une variable mémoire de ma source que j'initialise avec la source PHAREFM
+      var anchor = window.location.href;
+      anchor = anchor.substring((anchor.indexOf('#') + 1));
+      if (anchor == 'hits') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm-hits');
+          var lastSrc = pharefmHits;
+          request(readData, "_hits");
+      }
+      else if (anchor == 'worship' || anchor == 'live') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm-worship');
+          var lastSrc = pharefmWorship;
+          request(readData, "_worship");
+      }
+      else if (anchor == 'louange') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm-louange');
+          var lastSrc = pharefmLouange;
+          request(readData, "_louange");
+      }
+      else if (anchor == 'noel') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm-event');
+          var lastSrc = pharefmEvent;
+          request(readData, "_event");
+      }
+
+      else if (anchor == 'mons' || anchor == 'BE' || anchor == '89.3') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmBE;
+          request(readData, "");
+      }
+      else if (anchor == 'lyon' || anchor == 'dauphine'  || anchor == '107') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmPDD;
+          request(readData, "");
+      }
+      else if (anchor == 'grenoble' || anchor == '96.6') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmGRE;
+          request(readData, "");
+      }
+      else if (anchor == 'haguenau' || anchor == '92.5') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmHAG;
+          request(readData, "");
+      }
+      else if (anchor == 'hautenormandie' || anchor == 'haute-normandie'  || anchor == '94.9') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmHN;
+          request(readData, "");
+      }
+      else if (anchor == 'montauban' || anchor == '92.0') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmMTB;
+          request(readData, "");
+      }
+      else if (anchor == 'mulhouse' || anchor == '95.3') {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefmMLH;
+          request(readData, "");
+      }
+
+      else {
+          $('#block_musique').removeClass();
+          $('#block_musique').addClass('radio_pharefm');
+          var lastSrc = pharefm;
+          request(readData, "");
+      }
+
+      MediaElement('player', {success: function(player) {
+
+              // À chaque fois que je veux change la source, je modifie l'attribut src de la balise audio pour avoir la source correspondante dans le player
+              // Je mémorise également la source pour la gestion du bouton stop
+
+              $('#pharefm').click(function() {
+                  console.log('#pharefm 93');
+                  window.open(".", '_self');
+              });
+
+              $('#pharefm-worship').click(function() {
+                  console.log('#pharefm-worship 109');
+                  window.open("#worship", '_self');
+                  location.reload(true);
+              });
+
+              $('#pharefm-louange').click(function() {
+                  console.log('#pharefm-louange 107');
+                  window.open("#louange", '_self');
+                  location.reload(true);
+              });
+
+              $('#pharefm-hits').click(function() {
+                  console.log('#pharefm-hits 101');
+                  window.open("#hits", '_self');
+                  location.reload(true);
+              });
+
+              $('#pharefm-event').click(function() {
+                  console.log('#pharefm-event 115');
+                  window.open("#noel", '_self');
+                  location.reload(true);
+              });
+              // À chaque clic sur le bouton Play/Stop, je check son état
+              document.getElementById('playStop')['onclick'] = function() {
+                  console.log('click playstop');
+                  // Si player sur pause, je charge la dernière source et démarre la lecture
+                  if (player.paused) {
+                      $('#playStop').addClass('playing');
+                      $('#player').attr('src', lastSrc);
+                      player.play();
+
+                      // Si player sur play, je charge le fichier stop.mp3 sans le jouer pour couper le chargement du flux
+                  } else {
+                      $('#playStop').removeClass('playing');
+                      $('#player').attr('src', 'http://pharefm.com/wp-content/themes/enfold/js/mediaelement/stop.mp3');
+
+                  }
+
+              };
+
+          }});
+          $(document).ready( function() { $('#playStop').trigger('click'); });
+  </script>
 </body>
 
 </html>
