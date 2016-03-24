@@ -59,7 +59,7 @@
             </audio>
 
             <div id="block_musique" class="radio_pharefm">
-              <a href="#playstop" id="playStop" class="playing">Play / Stop</a>
+              <a href="#playstop" id="playStop">Play / Stop</a>
               <div id="header_nowplaying">
                 <div id="nowplaying_emission">
                   <a href="http://pharefm.com/emission/le-6-10-positif-morning/" target="_blank"><img src="http://pharefm.com/wp-content/uploads/2013/02/Le6-10-Positifmorning-2014.jpg" alt="Le 6-10 : Positif Morning"></a>
@@ -177,8 +177,6 @@
       }
 
       else {
-          $('#block_musique').removeClass();
-          $('#block_musique').addClass('radio_pharefm');
           var lastSrc = pharefm;
           request(readData, "");
       }
